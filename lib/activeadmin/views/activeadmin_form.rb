@@ -13,14 +13,15 @@ module ActiveAdmin
         default_lat = args[:default_lat] || 55.7522200
         default_lng = args[:default_lng] || 37.6155600
         map_zoom = args[:map_zoom] || 12
+        disable_scroll = args[:disable_scroll] || false
 
         case map
         when :yandex
-          insert_tag(YandexMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom)
+          insert_tag(YandexMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom, disable_scroll)
         when :google
-          insert_tag(GoogleMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom)
+          insert_tag(GoogleMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom, disable_scroll)
         when :openstreetmap
-          insert_tag(OpenStreetMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom)
+          insert_tag(OpenStreetMapProxy, form_builder, lang, id_lat, id_lng, height, loading_map, api_key, default_lat, default_lng, map_zoom, disable_scroll)
         end
       end
     end

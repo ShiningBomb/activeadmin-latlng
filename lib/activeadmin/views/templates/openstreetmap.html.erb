@@ -7,6 +7,7 @@
       idLng: '<%= id_lng %>',
       idSearch: 'latlng-search-box',
       zoom: '<%= map_zoom %>',
+      disable_scroll: '<%= disable_scroll %>',
       app: {},
       map: null,
       marker: null,
@@ -26,6 +27,9 @@
         osmObject.map.addLayer(osm);
 
         osmObject.map.setZoom(osmObject.zoom);
+
+        if(disable_scroll == 'true')
+          osmObject.map.scrollWheelZoom.disable();
 
         if (!osmObject.marker) {
           osmObject.marker = new L.marker([lat, lon], { draggable: 'true' });
